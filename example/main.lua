@@ -2,7 +2,7 @@
 Author: Daniel Duris, (CC-BY) 2014, dusoft[at]staznosti.sk
 Mutilated by: Philipp Überbacher, 2017, murks[at]freeshell.de]]--
 
-require("stateswitcher")
+require('../stateswitcher')
 
 local step = tonumber(gamestate.args[1])
 print('step: ')

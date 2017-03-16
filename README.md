@@ -24,7 +24,7 @@ The long answer:
 
 ## Usage
 
-See the included example or have a look at this brief explanation.
+See the included example (simply copy stateswitcher.lua into the example folder to make it work) or have a look at this brief explanation.
 
 You need to require the library once before using it.
 ```lua
