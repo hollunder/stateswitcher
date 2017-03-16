@@ -6,6 +6,7 @@ This is a very simple state switcher for Löve games (or any other Lua program).
 ## Does it do what I want?
 
 The short answer: it depends.
+
 The long answer:
 
 
@@ -26,7 +27,7 @@ The long answer:
 See the included example or have a look at this brief explanation.
 
 You need to require the library once before using it.
-```
+```lua
 -- in main.lua
 require('stateswitcher')
 
@@ -36,14 +37,14 @@ gamestate.switch('myGameState.lua')
 
 
 Any lua file can be a state, but I recommend to cleanly separate them from non-state files.
-```
+```lua
 -- in myGameState.lua
 -- switch to some other state and pass arguments
 gamestate.switch('anotherGameState.lua', {2, somekey='somestring', anotherkey=3.41})
 ```
 
 Read passed values from another game state and clear the arguments.
-```
+```lua
 -- in anotherGameState.lua
 -- read arguments either by index or key
 local double = gamestate.args[1]
