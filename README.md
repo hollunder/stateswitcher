@@ -15,11 +15,13 @@ The long answer:
 - Very simple: one state - one file
 - Re-usable functions - functions declared in previous states can be re-used
 - Modifyable on the fly - simply modify and reload a state file
+- Easy to understand and modify - for example 'local' version or ability to read out current state is 1-2 LOC
 
 
 ### Cons
 
 - Re-usable functions - functions declared in previous states must be re-declared if you do not want them to they stick around. This could lead to weird bugs if you are not careful. If you want to have clean game states by default I can recommend [hump.gamestate](https://github.com/vrld/hump).
+- Argument conventions - you have to create and stick to your own conventions for passing values
 
 
 ## Usage
@@ -40,7 +42,7 @@ Any lua file can be a state, but I recommend to cleanly separate them from non-s
 ```lua
 -- in myGameState.lua
 -- switch to some other state and pass arguments
-gamestate.switch('anotherGameState.lua', {2, somekey='somestring', anotherkey=3.41})
+gamestate.switch('anotherGameState.lua', {2, somekey='somestring', anotherkey=3.41, sometable={yes='no'}})
 ```
 
 Read passed values from another game state and clear the arguments.
@@ -50,6 +52,12 @@ Read passed values from another game state and clear the arguments.
 local double = gamestate.args[1]
 local s = gamestate.args.somekey
 local pi = gamestate.args.anotherkey
+local t = gamestate.args.sometable
+
+print(double)
+print(s)
+print(pi)
+print(t.yes)
 
 -- clear the arguments table
 gamestate.args = {}
